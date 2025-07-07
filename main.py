@@ -104,7 +104,7 @@ async def fetch_pwwp_data(session: aiohttp.ClientSession, url: str, headers: Dic
     max_retries = 3
     for attempt in range(max_retries):
         try:
-            async with session.get(method, url, headers=headers, params=params, json=data) as response:
+            async with session.request(method, url, headers=headers, params=params, json=data) as response:
                 response.raise_for_status()
                 return await response.json()
         except aiohttp.ClientError as e:
@@ -1037,7 +1037,7 @@ def appx_decrypt(enc):
     return url
 
 
-async def fetch_appx_html_to_json(session, url, headers=None, data=None):
+async def fetch_appx_html_to_json(session: aiohttp.ClientSession, url, headers=None, data=None):
     try:
         if data:
             async with session.post(url, headers=headers, data=data) as response:
