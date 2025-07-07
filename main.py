@@ -104,7 +104,7 @@ async def fetch_pwwp_data(session: aiohttp.ClientSession, url: str, headers: Dic
     max_retries = 3
     for attempt in range(max_retries):
         try:
-            async with session.request(method, url, headers=headers, params=params, json=data) as response:
+            async with session.get(method, url, headers=headers, params=params, json=data) as response:
                 response.raise_for_status()
                 return await response.json()
         except aiohttp.ClientError as e:
