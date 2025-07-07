@@ -359,13 +359,13 @@ async def pwwp_callback(bot, callback_query):
     user_id = callback_query.from_user.id
     await callback_query.answer()
     
-    auth_user = auth_users[0]
-    user = await bot.get_users(auth_user)
-    owner_username = "@" + user.username
+    # auth_user = auth_users[0]
+    # user = await bot.get_users(auth_user)
+    # owner_username = "@" + user.username
 
-    if user_id not in auth_users:
-        await bot.send_message(callback_query.message.chat.id, f"**You Are Not Subscribed To This Bot\nContact - {owner_username}**")
-        return
+    # if user_id not in auth_users:
+    #     await bot.send_message(callback_query.message.chat.id, f"**You Are Not Subscribed To This Bot\nContact - {owner_username}**")
+    #     return
             
     THREADPOOL.submit(asyncio.run, process_pwwp(bot, callback_query.message, user_id))
 
@@ -792,13 +792,13 @@ async def cpwp_callback(bot, callback_query):
     user_id = callback_query.from_user.id
     await callback_query.answer()
 
-    auth_user = auth_users[0]
-    user = await bot.get_users(auth_user)
-    owner_username = "@" + user.username
+    # auth_user = auth_users[0]
+    # user = await bot.get_users(auth_user)
+    # owner_username = "@" + user.username
 
-    if user_id not in auth_users:
-        await bot.send_message(callback_query.message.chat.id, f"**You Are Not Subscribed To This Bot\nContact - {owner_username}**")
-        return    
+    # if user_id not in auth_users:
+    #     await bot.send_message(callback_query.message.chat.id, f"**You Are Not Subscribed To This Bot\nContact - {owner_username}**")
+    #     return    
             
     THREADPOOL.submit(asyncio.run, process_cpwp(bot, callback_query.message, user_id))
     
@@ -1418,14 +1418,14 @@ async def appxwp_callback(bot, callback_query):
     user_id = callback_query.from_user.id
     await callback_query.answer()
 
-    auth_user = auth_users[0]
-    user = await bot.get_users(auth_user)
-    print(user.first_name)
-    owner_username = "@" + user.first_name
+    # auth_user = auth_users[0]
+    # user = await bot.get_users(auth_user)
+    # print(user.first_name)
+    # owner_username = "@" + user.first_name
 
-    if user_id not in auth_users:
-        await bot.send_message(callback_query.message.chat.id, f"**You Are Not Subscribed To This Bot\nContact - {owner_username}**")
-        return
+    # if user_id not in auth_users:
+    #     await bot.send_message(callback_query.message.chat.id, f"**You Are Not Subscribed To This Bot\nContact - {owner_username}**")
+    #     return
         
     THREADPOOL.submit(asyncio.run, process_appxwp(bot, callback_query.message, user_id))
 
